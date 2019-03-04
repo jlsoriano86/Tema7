@@ -3,4 +3,6 @@
     <string name="informacion">Información</string>
     <string name="nombreLugar">Nombre:</string>
     <string name="categoriaLugar">Categoría:</string>
+    <string name="longitudLugar">Longitud:</string>
+    <string name="latitudLugar">Latitud:</string>
 </resources>
