@@ -6,4 +6,5 @@
     <string name="longitudLugar">Longitud:</string>
     <string name="latitudLugar">Latitud:</string>
     <string name="valoracionLugar">Valoración:</string>
+    <string name="ComentariosLugar">Comentarios:</string>
 </resources>
