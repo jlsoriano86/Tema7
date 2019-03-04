@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InformacionActivity"></activity>
+        <activity android:name=".InformacionActivity"
+            android:label="@string/informacion"
+            />
         <activity android:name=".CardAdapter" />
         <activity android:name=".MainActivity">
             <intent-filter>
