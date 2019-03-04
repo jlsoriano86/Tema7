@@ -2,4 +2,5 @@
     <string name="app_name">Mis Lugares Favoritos</string>
     <string name="informacion">Información</string>
     <string name="nombreLugar">Nombre:</string>
+    <string name="categoriaLugar">Categoría:</string>
 </resources>
