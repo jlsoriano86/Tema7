@@ -1,4 +1,4 @@
-package Model;
+package com.example.tema7.Model;
 
 public class Lugar {
     private Long id;
