@@ -1,13 +1,65 @@
 package com.example.tema7;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
-public class CardAdapter extends AppCompatActivity {
+import com.example.tema7.Model.Lugar;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CardAdapter extends ArrayAdapter {
+    private List<Lugar> listado = new ArrayList<>();
+
+    static class CardViewHolder {
+        TextView line1;
+        TextView line2;
+       }
+
+    public CardAdapter(Context context, int textViewResourceId) {
+        super(context, textViewResourceId);
+    }
+
+
+    public void add(Lugar object) {
+        listado.add(object);
+        super.add(object);
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_item_card);
+    public int getCount() {
+        return this.listado.size();
     }
+
+    @Override
+    public Lugar getItem(int index) {
+        return this.listado.get(index);
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View row = convertView;
+        if (row == null) {
+            LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            row = inflater.inflate(R.layout.list_item_card, parent, false);
+
+            CardViewHolder viewHolder = new CardViewHolder();
+            viewHolder.line1 = row.findViewById(R.id.line1);
+            viewHolder.line2 = row.findViewById(R.id.line2);
+
+
+            Lugar l = getItem(position);
+            viewHolder.line1.setText(l.getNombre());
+            viewHolder.line2.setText(l.getValoracion().toString());
+
+
+            row.setTag(viewHolder);
+        }
+        return row;
+    }
+
 }
