@@ -1,7 +1,9 @@
-package com.example.tema7;
+package Model;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.tema7.R;
 
 public class MainActivity extends AppCompatActivity {
 
