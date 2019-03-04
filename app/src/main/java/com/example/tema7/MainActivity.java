@@ -1,4 +1,4 @@
-package Model;
+package com.example.tema7;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
