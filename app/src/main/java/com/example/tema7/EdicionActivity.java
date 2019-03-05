@@ -51,7 +51,7 @@ public class EdicionActivity extends AppCompatActivity {
         String categoria = spCategoria.getSelectedItem().toString();
         String longitud = txtLongitud.getText().toString();
         String latitud = txtLatitud.getText().toString();
-        //RatingBar valoracion = rbValoracion.getRating();
+        Float valoracion = rbValoracion.getRating();
         String comentarios = txtComentarios.getText().toString();
 
         if (nombre.equals("") || categoria.equals("")) {
@@ -61,7 +61,7 @@ public class EdicionActivity extends AppCompatActivity {
             App.lugarActivo.setCategoria(Integer.parseInt(categoria));
             App.lugarActivo.setLongitud(Float.parseFloat(longitud));
             App.lugarActivo.setLatitud(Float.parseFloat(latitud));
-            //App.lugarActivo.setValoracion(Float.parseFloat(valoracion));
+            App.lugarActivo.setValoracion(valoracion);
             App.lugarActivo.setComentarios(comentarios);
 
             switch (App.accion) {
