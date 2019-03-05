@@ -63,7 +63,7 @@
             android:text="@string/longitudLugar" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/txtLongitud"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -78,7 +78,7 @@
             android:text="@string/latitudLugar" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/txtLatitud"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -99,7 +99,7 @@
             android:text="@string/valoracionLugar" />
 
         <RatingBar
-            android:id="@+id/ratingBar"
+            android:id="@+id/rbValoracion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5" />
@@ -117,7 +117,7 @@
             android:text="@string/ComentariosLugar" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/txtComentarios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
