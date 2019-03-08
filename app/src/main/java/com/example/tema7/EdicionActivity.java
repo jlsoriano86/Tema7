@@ -61,8 +61,7 @@ public class EdicionActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.opcInsertar: clicInsertar(); break;
-
+            case R.id.opcInsertar: clicInsertar();
         }
         return true;
     }
@@ -74,8 +73,8 @@ public class EdicionActivity extends AppCompatActivity {
     }
 
 
-/*
-    public void clicGuardar(View view) {
+
+    /* public void clicGuardar(View view) {
         String nombre = txtNombre.getText().toString();
         String categoria = spCategoria.getSelectedItem().toString();
         String longitud = txtLongitud.getText().toString();
@@ -103,10 +102,10 @@ public class EdicionActivity extends AppCompatActivity {
             finish();
         }
     }
-*/
 
-  /*  private void mostrarMensaje(String msg) {
+
+    private void mostrarMensaje(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-    }
-    */
+    }*/
+
 }
