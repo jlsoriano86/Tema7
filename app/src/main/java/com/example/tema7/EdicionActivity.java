@@ -40,7 +40,7 @@ public class EdicionActivity extends AppCompatActivity {
         rbValoracion = findViewById(R.id.rbValoracion);
         txtComentarios = findViewById(R.id.txtComentarios);
 
-        List categorias = Arrays.asList("Parque", "Bar", "Museo", "Biblioteca", "Tienda");
+        List categorias = Arrays.asList("Parque", "Bar", "Museo", "Biblioteca", "Tienda", "Todas");
        spCategoria.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categorias));
 
         txtNombre.setText(App.lugarActivo.getNombre());
@@ -48,7 +48,7 @@ public class EdicionActivity extends AppCompatActivity {
         txtLongitud.setText(App.lugarActivo.getLongitud().toString());
         txtLatitud.setText(App.lugarActivo.getLatitud().toString());
         rbValoracion.setRating(App.lugarActivo.getValoracion());
-        txtComentarios.setText(App.lugarActivo.getComentarios().toString());
+        txtComentarios.setText(App.lugarActivo.getComentarios());
 
     }
     @Override
