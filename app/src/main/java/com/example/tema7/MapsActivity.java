@@ -61,7 +61,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             for (Lugar l : listaLugares) {
                 Marcador = new LatLng(l.getLatitud(), l.getLongitud());
                 if (l.getCategoria() == 1){
-                    mMap.addMarker(new MarkerOptions().position(Marcador).title(l.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.mi_marcador))););
+                    mMap.addMarker(new MarkerOptions().position(Marcador).title(l.getNombre()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
+                }else if (l.getCategoria() == 2){
+                    mMap.addMarker(new MarkerOptions().position(Marcador).title(l.getNombre()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
+                }else if (l.getCategoria() == 3){
+                    mMap.addMarker(new MarkerOptions().position(Marcador).title(l.getNombre()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+                }else if (l.getCategoria() == 4){
+                    mMap.addMarker(new MarkerOptions().position(Marcador).title(l.getNombre()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                }else if (l.getCategoria() == 5){
+                    mMap.addMarker(new MarkerOptions().position(Marcador).title(l.getNombre()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                }else if (l.getCategoria() == 6){
+                    mMap.addMarker(new MarkerOptions().position(Marcador).title(l.getNombre()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
                 }
 
             }
