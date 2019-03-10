@@ -70,12 +70,22 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         rbValoracion = findViewById(R.id.rbValoracion);
         txtComentarios = findViewById(R.id.txtComentarios);
         imgLocalizacion = findViewById(R.id.imgLocalizacion);
-
+        List<String> list = App.getListCategorias(this);
+        final int listsize = list.size();
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list) {
+            @Override
+            public int getCount() {
+                return(listsize); // Truncate the list
+            }
+        };
+/*
         List categorias = Arrays.asList("Parque", "Bar", "Museo", "Biblioteca", "Tienda", "Todas");
         spCategoria.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categorias));
+        */
+
 
         txtNombre.setText(App.lugarActivo.getNombre());
-        spCategoria.setSelection(categorias.indexOf(App.lugarActivo.getCategoria()));
+        spCategoria.setSelection(App.lugarActivo.getCategoria());
         txtLongitud.setText(App.lugarActivo.getLongitud().toString());
         txtLatitud.setText(App.lugarActivo.getLatitud().toString());
         rbValoracion.setRating(App.lugarActivo.getValoracion());
@@ -109,7 +119,10 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
                     getLocation();
                 }
             }
+
         });
+
+
     }
 
 
