@@ -38,7 +38,7 @@
         <activity
             android:name=".InformacionActivity"
             android:label="@string/informacion" />
-        <activity android:name=".CardAdapter" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
