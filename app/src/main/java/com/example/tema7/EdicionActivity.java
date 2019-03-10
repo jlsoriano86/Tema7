@@ -67,10 +67,37 @@ public class EdicionActivity extends AppCompatActivity {
     }
 
     public void clicInsertar() {
+        String nombre = txtNombre.getText().toString();
+        String categoria = spCategoria.getSelectedItem().toString();
+        String longitud = txtLongitud.getText().toString();
+        String latitud = txtLatitud.getText().toString();
+        Float valoracion = rbValoracion.getRating();
+        String comentarios = txtComentarios.getText().toString();
+
+        if (nombre.equals("") || categoria.equals("")) {
+            mostrarMensaje("Faltan datos obligatorios.");
+        } else {
+            App.lugarActivo.setNombre(nombre);
+            App.lugarActivo.setCategoria(Integer.parseInt(categoria));
+            App.lugarActivo.setLongitud(Float.parseFloat(longitud));
+            App.lugarActivo.setLatitud(Float.parseFloat(latitud));
+            App.lugarActivo.setValoracion(valoracion);
+            App.lugarActivo.setComentarios(comentarios);
+
         App.accion = App.INSERTAR;
         startActivity(new Intent(this, EdicionActivity.class));
         finish();
     }
+        mostrarMensaje("Lugar " + nombre + " ha sido almacenado.");
+        finish();
+    }
+
+
+
+    private void mostrarMensaje(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
+
 
 
 
