@@ -71,7 +71,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         txtComentarios = findViewById(R.id.txtComentarios);
         imgLocalizacion = findViewById(R.id.imgLocalizacion);
 
-        List categorias = Arrays.asList("Parque", "Bar", "Museo", "Biblioteca", "Tienda", "Todas");
+        List categorias = Arrays.asList("@string/CategoriaParque", "@string/CategoriaBar","@string/CategoriaMuseo", "@string/CategoriaBiblioteca", "@string/CategoriaTienda", "@string/CategoriaTodas");
         spCategoria.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categorias));
 
         txtNombre.setText(App.lugarActivo.getNombre());
@@ -251,7 +251,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         return true;
     }*/
 
-    public void clicInsertar(View view) {
+    public void clicInsertar() {
         String nombre = txtNombre.getText().toString();
         String categoria = spCategoria.getSelectedItem().toString();
         String longitud = txtLongitud.getText().toString();

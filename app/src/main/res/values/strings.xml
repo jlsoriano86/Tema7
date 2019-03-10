@@ -9,4 +9,10 @@
     <string name="valoracionLugar">Valoración:</string>
     <string name="ComentariosLugar">Comentarios:</string>
     <string name="title_activity_maps">Map</string>
+    <string name="CategoriaParque">Parque</string>
+    <string name="CategoriaBar">Bar</string>
+    <string name="CategoriaMuseo">Museo</string>
+    <string name="CategoriaBiblioteca">Biblioteca</string>
+    <string name="CategoriaTienda">Tienda</string>
+    <string name="CategoriaTodas">Todas</string>
 </resources>
