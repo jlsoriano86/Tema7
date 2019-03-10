@@ -273,7 +273,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         return true;
     }*/
 
-    public void clicInsertar() {
+    public void clicInsertar(View view) {
         String nombre = txtNombre.getText().toString();
         String categoria = spCategoria.getSelectedItem().toString();
         String longitud = txtLongitud.getText().toString();
@@ -283,20 +283,18 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
 
         if (nombre.equals("") || categoria.equals("") || longitud.equals("") || latitud.equals("") || valoracion.equals("") || comentarios.equals("") ) {
             mostrarMensaje("Faltan datos obligatorios.");
+            finish();
         } else {
             App.lugarActivo.setNombre(nombre);
-            App.lugarActivo.setCategoria(Integer.parseInt(categoria));
+            App.lugarActivo.setCategoria(spCategoria.getSelectedItemPosition()+1);
             App.lugarActivo.setLongitud(Float.parseFloat(longitud));
             App.lugarActivo.setLatitud(Float.parseFloat(latitud));
             App.lugarActivo.setValoracion(valoracion);
             App.lugarActivo.setComentarios(comentarios);
-
-        App.accion = App.INSERTAR;
-        startActivity(new Intent(this, EdicionActivity.class));
-
-    }
+            LogicLugar.insertarLugar(this, App.lugarActivo );
         mostrarMensaje("Lugar " + nombre + " ha sido almacenado.");
         finish();
+    }
     }
 
 
