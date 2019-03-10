@@ -72,7 +72,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         imgLocalizacion = findViewById(R.id.imgLocalizacion);
         List<String> list = App.getListCategorias(this);
         final int listsize = list.size();
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list) {
+        ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list) {
             @Override
             public int getCount() {
                 return(listsize); // Truncate the list
@@ -121,6 +121,15 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
             }
 
         });
+
+        Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spCategoria.setAdapter(Adapter);
+        txtNombre.setText(App.lugarActivo.getNombre());
+        spCategoria.setSelection(App.lugarActivo.getCategoria()-1);
+        txtLongitud.setText(App.lugarActivo.getLongitud().toString());
+        txtLatitud.setText(App.lugarActivo.getLatitud().toString());
+        rbValoracion.setRating(App.lugarActivo.getValoracion());
+        txtComentarios.setText(App.lugarActivo.getComentarios());
 
 
     }
