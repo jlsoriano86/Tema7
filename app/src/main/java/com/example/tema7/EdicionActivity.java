@@ -31,6 +31,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.tema7.Logic.LogicLugar;
+import com.example.tema7.Model.Lugar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -272,12 +273,15 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         clicInsertar();
         return true;
     }
-    
+
 
     public void clicInsertar() {
+        App.lugarActivo = new Lugar();
+        String nombre = txtNombre.getText().toString();
         App.accion = App.INSERTAR;
         LogicLugar.insertarLugar(getApplicationContext(), App.lugarActivo);
-        finish();
+        mostrarMensaje("Producto " + nombre + " ha sido almacenado.");
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     private void mostrarMensaje(String msg) {
