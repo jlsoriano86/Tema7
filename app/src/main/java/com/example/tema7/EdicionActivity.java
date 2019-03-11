@@ -72,10 +72,10 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         imgLocalizacion = findViewById(R.id.imgLocalizacion);
         List<String> list = App.getListCategorias(this);
         final int listsize = list.size();
-        ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list) {
+        ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list) {
             @Override
             public int getCount() {
-                return(listsize); // Truncate the list
+                return (listsize); // Truncate the list
             }
         };
 /*
@@ -125,7 +125,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spCategoria.setAdapter(Adapter);
         txtNombre.setText(App.lugarActivo.getNombre());
-        spCategoria.setSelection(App.lugarActivo.getCategoria()-1);
+        spCategoria.setSelection(App.lugarActivo.getCategoria() - 1);
         txtLongitud.setText(App.lugarActivo.getLongitud().toString());
         txtLatitud.setText(App.lugarActivo.getLatitud().toString());
         rbValoracion.setRating(App.lugarActivo.getValoracion());
@@ -133,7 +133,6 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
 
 
     }
-
 
 
     private void getLocation() {
@@ -178,6 +177,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
             e.printStackTrace();
         }
     }
+
     @TargetApi(Build.VERSION_CODES.M)
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -208,6 +208,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
                 break;
         }
     }
+
     private void showSettingsAlert() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("El GPS no está activado");
@@ -225,7 +226,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         alertDialog.show();
     }
 
-    private ArrayList<String> findUnAskedPermissions(ArrayList <String> wanted) {
+    private ArrayList<String> findUnAskedPermissions(ArrayList<String> wanted) {
         ArrayList result = new ArrayList();
         for (String perm : wanted) {
             if (!hasPermission(perm)) {
@@ -250,6 +251,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
                 .create()
                 .show();
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -264,40 +266,19 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         inflater.inflate(R.menu.menu_edicion, menu);
         return true;
     }
-/*
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.opcInsertar: clicInsertar();
-        }
+        clicInsertar();
         return true;
-    }*/
+    }
+    
 
-    public void clicInsertar(View view) {
-        String nombre = txtNombre.getText().toString();
-        String categoria = spCategoria.getSelectedItem().toString();
-        String longitud = txtLongitud.getText().toString();
-        String latitud = txtLatitud.getText().toString();
-        Float valoracion = rbValoracion.getRating();
-        String comentarios = txtComentarios.getText().toString();
-
-        if (nombre.equals("") || categoria.equals("") || longitud.equals("") || latitud.equals("") || valoracion.equals("") || comentarios.equals("") ) {
-            mostrarMensaje("Faltan datos obligatorios.");
-            finish();
-        } else {
-            App.lugarActivo.setNombre(nombre);
-            App.lugarActivo.setCategoria(spCategoria.getSelectedItemPosition()+1);
-            App.lugarActivo.setLongitud(Float.parseFloat(longitud));
-            App.lugarActivo.setLatitud(Float.parseFloat(latitud));
-            App.lugarActivo.setValoracion(valoracion);
-            App.lugarActivo.setComentarios(comentarios);
-            LogicLugar.insertarLugar(this, App.lugarActivo );
-        mostrarMensaje("Lugar " + nombre + " ha sido almacenado.");
+    public void clicInsertar() {
+        App.accion = App.INSERTAR;
+        LogicLugar.insertarLugar(getApplicationContext(), App.lugarActivo);
         finish();
     }
-    }
-
-
 
     private void mostrarMensaje(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
@@ -323,41 +304,5 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
 
     }
 
-
-
-
-    /* public void clicGuardar(View view) {
-        String nombre = txtNombre.getText().toString();
-        String categoria = spCategoria.getSelectedItem().toString();
-        String longitud = txtLongitud.getText().toString();
-        String latitud = txtLatitud.getText().toString();
-        Float valoracion = rbValoracion.getRating();
-        String comentarios = txtComentarios.getText().toString();
-
-        if (nombre.equals("") || categoria.equals("")) {
-            mostrarMensaje("Faltan datos obligatorios.");
-        } else {
-            App.lugarActivo.setNombre(nombre);
-            App.lugarActivo.setCategoria(Integer.parseInt(categoria));
-            App.lugarActivo.setLongitud(Float.parseFloat(longitud));
-            App.lugarActivo.setLatitud(Float.parseFloat(latitud));
-            App.lugarActivo.setValoracion(valoracion);
-            App.lugarActivo.setComentarios(comentarios);
-
-            switch (App.accion) {
-                case App.INSERTAR:
-                    LogicLugar.insertarLugar(this, App.lugarActivo);
-                    break;
-
-            }
-            mostrarMensaje("Lugar " + nombre + " ha sido almacenado.");
-            finish();
-        }
-    }
-
-
-    private void mostrarMensaje(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-    }*/
 
 }
