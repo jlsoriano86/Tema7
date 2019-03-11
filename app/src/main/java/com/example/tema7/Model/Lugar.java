@@ -4,9 +4,9 @@ public class Lugar {
     private Long id;
     private String nombre;
     private Integer categoria;
-    private float longitud;
-    private float latitud;
-    private float valoracion;
+    private Float longitud;
+    private Float latitud;
+    private Float valoracion;
     private String comentarios;
 
 
