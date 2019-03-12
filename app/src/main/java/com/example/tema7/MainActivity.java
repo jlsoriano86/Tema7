@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -29,6 +30,16 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.card_listView);
         listView.addHeaderView(new View(this)); // añade espacio arriba de la primera card
         listView.addFooterView(new View(this)); // añade espacio debajo de la última card
+
+        //Añadiendo categorías al spinner
+        List<String> list = App.getListCategorias(this);
+        final int listsize = list.size();
+        ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list) {
+            @Override
+            public int getCount() {
+                return (listsize); // Truncate the list
+            }
+        };
 
         listView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
