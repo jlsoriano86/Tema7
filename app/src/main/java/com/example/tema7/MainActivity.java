@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         categorias = findViewById(R.id.categorias);
 
         List<String> list = new ArrayList<String>();
+        list.add(getResources().getString(R.string.CategoriaElige));
         list.add(getResources().getString(R.string.CategoriaParque));
         list.add(getResources().getString(R.string.CategoriaBar));
         list.add(getResources().getString(R.string.CategoriaMuseo));

@@ -19,6 +19,7 @@ public class App {
 
     public static List<String> getListCategorias(Context context) {
         List<String> list = new ArrayList<String>();
+        list.add(context.getResources().getString(R.string.CategoriaElige));
         list.add(context.getResources().getString(R.string.CategoriaParque));
         list.add(context.getResources().getString(R.string.CategoriaBar));
         list.add(context.getResources().getString(R.string.CategoriaMuseo));
