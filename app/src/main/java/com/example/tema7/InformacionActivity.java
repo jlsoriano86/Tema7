@@ -28,7 +28,8 @@ public class InformacionActivity extends AppCompatActivity {
         TextView txtComentarios = findViewById(R.id.txtComentarios);
 
         txtNombre.setText(App.lugarActivo.getNombre());
-        txtCategoria.setText(App.lugarActivo.getCategoria());
+        int indexCategoria = App.lugarActivo.getCategoria();
+        txtCategoria.setText(App.getListCategorias(this.getApplicationContext()).get(indexCategoria));
         txtLongitud.setText(App.lugarActivo.getLongitud().toString());
         txtLatitud.setText(App.lugarActivo.getLatitud().toString());
         rbValoracion.setRating(App.lugarActivo.getValoracion());

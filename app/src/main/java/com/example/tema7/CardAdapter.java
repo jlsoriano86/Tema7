@@ -1,11 +1,11 @@
 package com.example.tema7;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.tema7.Model.Lugar;
@@ -50,8 +50,10 @@ public class CardAdapter extends ArrayAdapter {
 
             CardViewHolder viewHolder = new CardViewHolder();
             viewHolder.line1 = row.findViewById(R.id.line1);
+
             Lugar l = getItem(position);
             viewHolder.line1.setText(l.getNombre());
+            Log.i("MyApp", "Nombre: " + l.getNombre());
             /*RatingBar rbValoracion = row.findViewById(R.id.rbValoracion);
             rbValoracion.setRating(l.getValoracion());*/
             row.setTag(viewHolder);

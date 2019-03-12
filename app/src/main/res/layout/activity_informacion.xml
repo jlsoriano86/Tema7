@@ -18,15 +18,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/nombreLugar" />
+            android:text="@string/nombreLugar"
+            android:textSize="18sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/txtNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,15 +41,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/categoriaLugar" />
+            android:text="@string/categoriaLugar"
+            android:textSize="18sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/txtCategoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -60,30 +64,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/longitudLugar" />
+            android:text="@string/longitudLugar"
+            android:textSize="18sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/txtLongitud"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/latitudLugar" />
+            android:text="@string/latitudLugar"
+            android:textSize="18sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/txtLatitud"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -96,7 +104,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/valoracionLugar" />
+            android:text="@string/valoracionLugar"
+            android:textSize="18sp" />
 
         <RatingBar
             android:id="@+id/rbValoracion"
@@ -114,15 +123,17 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ComentariosLugar" />
+            android:text="@string/ComentariosLugar"
+            android:textSize="18sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/txtComentarios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </LinearLayout>

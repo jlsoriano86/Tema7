@@ -15,6 +15,8 @@ public class App {
 
     public static Lugar lugarActivo;
 
+
+
     public static List<String> getListCategorias(Context context) {
         List<String> list = new ArrayList<String>();
         list.add(context.getResources().getString(R.string.CategoriaParque));
