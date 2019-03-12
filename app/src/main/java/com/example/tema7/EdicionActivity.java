@@ -82,10 +82,6 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
                 return (listsize); // Truncate the list
             }
         };
-/*
-        List categorias = Arrays.asList("Parque", "Bar", "Museo", "Biblioteca", "Tienda", "Todas");
-        spCategoria.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categorias));
-        */
 
 
         txtNombre.setText(App.lugarActivo.getNombre());
