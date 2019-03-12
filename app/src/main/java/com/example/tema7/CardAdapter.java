@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.tema7.Model.Lugar;
@@ -47,13 +48,11 @@ public class CardAdapter extends ArrayAdapter {
         if (row == null) {
             LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(R.layout.list_item_card, parent, false);
-
             CardViewHolder viewHolder = new CardViewHolder();
             viewHolder.line1 = row.findViewById(R.id.line1);
-
             Lugar l = getItem(position);
             viewHolder.line1.setText(l.getNombre());
-            Log.i("MyApp", "Nombre: " + l.getNombre());
+            //Log.i("MyApp", "Nombre: " + l.getNombre());
             /*RatingBar rbValoracion = row.findViewById(R.id.rbValoracion);
             rbValoracion.setRating(l.getValoracion());*/
             row.setTag(viewHolder);

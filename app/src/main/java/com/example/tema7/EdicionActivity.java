@@ -290,10 +290,19 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
             App.lugarActivo.setLatitud(Float.parseFloat(latitud));
             App.lugarActivo.setValoracion(valoracion);
             App.lugarActivo.setComentarios(comentarios);
-            App.accion = App.INSERTAR;
-            LogicLugar.insertarLugar(getApplicationContext(), App.lugarActivo);
-            mostrarMensaje("Producto " + nombre + " ha sido almacenado.");
-            startActivity(new Intent(this, MainActivity.class));
+            //AÑADE
+            // setTitle(App.accion == 1 ? R.string.accionNuevo : R.string.accionEditar);
+            if (App.accion ==1) {
+                App.accion = App.INSERTAR;
+                LogicLugar.insertarLugar(getApplicationContext(), App.lugarActivo);
+                mostrarMensaje("Producto " + nombre + " ha sido almacenado.");
+                startActivity(new Intent(this, MainActivity.class));
+            }else{
+                App.accion = App.EDITAR;
+                LogicLugar.editarLugar(getApplicationContext(), App.lugarActivo);
+                startActivity(new Intent(this, MainActivity.class));
+
+            }
         }
 
     }
