@@ -276,17 +276,34 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
 
 
     public void clicInsertar() {
-        App.lugarActivo = new Lugar();
         String nombre = txtNombre.getText().toString();
-        App.accion = App.INSERTAR;
-        LogicLugar.insertarLugar(getApplicationContext(), App.lugarActivo);
-        mostrarMensaje("Producto " + nombre + " ha sido almacenado.");
-        startActivity(new Intent(this, MainActivity.class));
-    }
+        Integer categoria = spCategoria.getSelectedItemPosition();
+        String longitud = txtLongitud.getText().toString();
+        String latitud = txtLatitud.getText().toString();
+        Float valoracion = rbValoracion.getRating();
+        String comentarios = txtComentarios.getText().toString();
+        if (nombre.equals("") || comentarios.equals("")) {
+            mostrarMensaje("Faltan datos obligatorios.");
+        } else {
+            App.lugarActivo.setNombre(nombre);
+            App.lugarActivo.setCategoria(categoria);
+            App.lugarActivo.setLongitud(Float.parseFloat(longitud));
+            App.lugarActivo.setLatitud(Float.parseFloat(latitud));
+            App.lugarActivo.setValoracion(valoracion);
+            App.lugarActivo.setComentarios(comentarios);
+            App.accion = App.INSERTAR;
+            LogicLugar.insertarLugar(getApplicationContext(), App.lugarActivo);
+            mostrarMensaje("Producto " + nombre + " ha sido almacenado.");
+            startActivity(new Intent(this, MainActivity.class));
+                }
 
+        }
     private void mostrarMensaje(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
+
+
+
 
     @Override
     public void onLocationChanged(Location location) {
