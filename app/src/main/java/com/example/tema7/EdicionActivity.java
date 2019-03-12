@@ -282,7 +282,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         String latitud = txtLatitud.getText().toString();
         Float valoracion = rbValoracion.getRating();
         String comentarios = txtComentarios.getText().toString();
-        if (nombre.equals("") || comentarios.equals("")) {
+        if (nombre.equals("") || categoria.equals(0)|| longitud.equals(0.0f)|| latitud.equals(0.0f)|| valoracion.equals(0.0f)|| comentarios.equals("")) {
             mostrarMensaje("Faltan datos obligatorios.");
         } else {
             App.lugarActivo.setNombre(nombre);
