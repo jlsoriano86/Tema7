@@ -59,7 +59,7 @@ public class InformacionActivity extends AppCompatActivity {
 
     public void clicBorrar() {
         new AlertDialog.Builder(this)
-                .setMessage("¿ Quieres borrar el producto " + App.lugarActivo.getNombre() + " ?")
+                .setMessage("¿ Quieres borrar el lugar " + App.lugarActivo.getNombre() + " ?")
                 .setCancelable(false)
                 .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

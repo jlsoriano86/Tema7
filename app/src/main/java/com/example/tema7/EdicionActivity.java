@@ -191,7 +191,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
                 if (permissionsRejected.size() > 0) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         if (shouldShowRequestPermissionRationale(permissionsRejected.get(0))) {
-                            showMessageOKCancel("Se requiere permisos para ejecutar la aplicación.",
+                            showMessageOKCancel("Se requieren permisos para ejecutar la aplicación.",
                                     new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
@@ -295,7 +295,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
             if (App.accion ==1) {
                 App.accion = App.INSERTAR;
                 LogicLugar.insertarLugar(getApplicationContext(), App.lugarActivo);
-                mostrarMensaje("Producto " + nombre + " ha sido almacenado.");
+                mostrarMensaje("El lugar " + nombre + " ha sido almacenado.");
                 startActivity(new Intent(this, MainActivity.class));
             }else{
                 App.accion = App.EDITAR;
