@@ -1,5 +1,6 @@
 package com.example.tema7;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.example.tema7.Logic.LogicLugar;
 import com.example.tema7.Model.Lugar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,13 +28,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imgMapa = findViewById(R.id.imgMapa);
-        categorias = findViewById(R.id.categorias);
         listView = findViewById(R.id.card_listView);
         listView.addHeaderView(new View(this)); // añade espacio arriba de la primera card
         listView.addFooterView(new View(this)); // añade espacio debajo de la última card
+        categorias = findViewById(R.id.categorias);
 
-        //Añadiendo categorías al spinner
-        List<String> list = App.getListCategorias(this);
+            List<String> list = new ArrayList<String>();
+            list.add(getResources().getString(R.string.CategoriaParque));
+            list.add(getResources().getString(R.string.CategoriaBar));
+            list.add(getResources().getString(R.string.CategoriaMuseo));
+            list.add(getResources().getString(R.string.CategoriaBiblioteca));
+            list.add(getResources().getString(R.string.CategoriaTienda));
+            list.add(getResources().getString(R.string.CategoriaTodas));
+
+
         final int listsize = list.size();
         ArrayAdapter<String> Adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list) {
             @Override
@@ -40,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
                 return (listsize); // Truncate the list
             }
         };
+        Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorias.setAdapter(Adapter);
 
         listView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
