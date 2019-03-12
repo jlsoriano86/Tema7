@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private static List<Lugar> lstLug;
     public ImageView imgMapa;
     Spinner categorias;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
         listView.addFooterView(new View(this)); // añade espacio debajo de la última card
         categorias = findViewById(R.id.categorias);
 
-            List<String> list = new ArrayList<String>();
-            list.add(getResources().getString(R.string.CategoriaParque));
-            list.add(getResources().getString(R.string.CategoriaBar));
-            list.add(getResources().getString(R.string.CategoriaMuseo));
-            list.add(getResources().getString(R.string.CategoriaBiblioteca));
-            list.add(getResources().getString(R.string.CategoriaTienda));
-            list.add(getResources().getString(R.string.CategoriaTodas));
+        List<String> list = new ArrayList<String>();
+        list.add(getResources().getString(R.string.CategoriaParque));
+        list.add(getResources().getString(R.string.CategoriaBar));
+        list.add(getResources().getString(R.string.CategoriaMuseo));
+        list.add(getResources().getString(R.string.CategoriaBiblioteca));
+        list.add(getResources().getString(R.string.CategoriaTienda));
+        list.add(getResources().getString(R.string.CategoriaTodas));
 
 
         final int listsize = list.size();
@@ -62,12 +63,29 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-    imgMapa.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            startActivity(new Intent(getApplicationContext(), MapsActivity.class));
-        }
-    });
+        imgMapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), MapsActivity.class));
+            }
+        });
+
+        categorias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (categorias.getSelectedItem().toString()==getResources().getString(R.string.CategoriaTodas)){
+                    mostrarTodasCategorias();
+                }else{
+                    mostrarCategoria();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 
 
@@ -92,5 +110,31 @@ public class MainActivity extends AppCompatActivity {
         App.lugarActivo = new Lugar();
         App.accion = App.INSERTAR;
         startActivity(new Intent(this, EdicionActivity.class));
+    }
+
+    public void mostrarCategoria() {
+        CardAdapter listadoCards = new CardAdapter(getApplicationContext(), R.layout.list_item_card);
+        lstLug = LogicLugar.listaLugares2(this, categorias);
+        if (lstLug == null) {
+            listView.setAdapter(null);
+        } else {
+            for (Lugar l : lstLug) {
+                listadoCards.add(l);
+            }
+            listView.setAdapter(listadoCards);
+        }
+    }
+
+    public void mostrarTodasCategorias() {
+        CardAdapter listadoCards = new CardAdapter(getApplicationContext(), R.layout.list_item_card);
+        lstLug = LogicLugar.listaLugares(this);
+        if (lstLug == null) {
+            listView.setAdapter(null);
+        } else {
+            for (Lugar l : lstLug) {
+                listadoCards.add(l);
+            }
+            listView.setAdapter(listadoCards);
+        }
     }
 }
