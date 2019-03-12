@@ -64,6 +64,9 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edicion);
+
+        setTitle(App.accion == 1 ? R.string.accionNuevo : R.string.accionEditar);
+
         txtNombre = findViewById(R.id.txtNombre);
         spCategoria = findViewById(R.id.spCategoria);
         txtLongitud = findViewById(R.id.txtLongitud);
@@ -282,7 +285,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         String latitud = txtLatitud.getText().toString();
         Float valoracion = rbValoracion.getRating();
         String comentarios = txtComentarios.getText().toString();
-        if (nombre.equals("") || categoria.equals(0)|| longitud.equals(0.0f)|| latitud.equals(0.0f)|| valoracion.equals(0.0f)|| comentarios.equals("")) {
+        if (nombre.equals("") || categoria.equals(0) || longitud.equals(0.0f) || latitud.equals(0.0f) || valoracion.equals(0.0f) || comentarios.equals("")) {
             mostrarMensaje("Faltan datos obligatorios.");
         } else {
             App.lugarActivo.setNombre(nombre);
@@ -295,14 +298,13 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
             LogicLugar.insertarLugar(getApplicationContext(), App.lugarActivo);
             mostrarMensaje("Producto " + nombre + " ha sido almacenado.");
             startActivity(new Intent(this, MainActivity.class));
-                }
-
         }
+
+    }
+
     private void mostrarMensaje(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
-
-
 
 
     @Override
