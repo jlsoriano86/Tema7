@@ -301,6 +301,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
             }else{
                 App.accion = App.EDITAR;
                 LogicLugar.editarLugar(getApplicationContext(), App.lugarActivo);
+                mostrarMensaje("El lugar " + nombre + " ha sido editado.");
                 startActivity(new Intent(this, MainActivity.class));
 
             }
