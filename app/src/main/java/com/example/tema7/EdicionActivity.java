@@ -104,6 +104,7 @@ public class EdicionActivity extends AppCompatActivity implements LocationListen
         imgLocalizacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i("Test","prueba");
                 if (!isGPS && !isNetwork) {
                     Log.i(TAG, "Conexión OFF");
                     showSettingsAlert();

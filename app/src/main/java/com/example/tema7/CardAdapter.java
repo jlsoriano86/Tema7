@@ -19,7 +19,7 @@ public class CardAdapter extends ArrayAdapter {
 
     static class CardViewHolder {
         TextView line1;
-
+        RatingBar line2;
        }
 
     public CardAdapter(Context context, int textViewResourceId) {
@@ -52,9 +52,12 @@ public class CardAdapter extends ArrayAdapter {
             viewHolder.line1 = row.findViewById(R.id.line1);
             Lugar l = getItem(position);
             viewHolder.line1.setText(l.getNombre());
-            //Log.i("MyApp", "Nombre: " + l.getNombre());
-            /*RatingBar rbValoracion = row.findViewById(R.id.rbValoracion);
-            rbValoracion.setRating(l.getValoracion());*/
+            Log.i("MyApp", "Nombre: " + l.getNombre());
+           RatingBar line2 = row.findViewById(R.id.line2);
+           if (l.getValoracion() == null) {
+               Log.i("NULO", "ES NULO!");
+           }
+           line2.setRating(l.getValoracion());
             row.setTag(viewHolder);
         }
         return row;
