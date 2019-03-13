@@ -81,14 +81,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
     }
-
     @Override
     public boolean onMarkerClick(final Marker marker) {
+
+        Double latitud = marker.getPosition().latitude;
+        Double longitud = marker.getPosition().longitude;
+
+        //String longitud = separacion[0];
+        //String latitud = separacion[1];
+        Lugar l = LogicLugar.getLugar(this, longitud, latitud);
+        if (l == null) {
+            Log.i("MyApp", "No se ha encontrado el lugar");
+        } else {
+            App.lugarActivo = l;
+            Log.i("MyApp", "Lugar encontrado");
+            startActivity(new Intent(getApplicationContext(), InformacionActivity.class));
+        }
+
         return false;
     }
-
-
-
 
 
 }
