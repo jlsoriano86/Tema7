@@ -16,8 +16,6 @@
     <string name="CategoriaBiblioteca">Biblioteca</string>
     <string name="CategoriaTienda">Tienda</string>
     <string name="CategoriaTodas">Todas</string>
-
-
-    <string name="accionNuevo">NUEVO</string>
-    <string name="accionEditar">EDITANDO...</string>
+    <string name="accionNuevo">Nuevo</string>
+    <string name="accionEditar">Editando...</string>
 </resources>

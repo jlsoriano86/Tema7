@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mes endroits préférés</string>
+    <string name="informacion">Les informations</string>
+    <string name="edicion">Nouveau/Edition</string>
+    <string name="nombreLugar">Nom:</string>
+    <string name="categoriaLugar">Catégorie:</string>
+    <string name="longitudLugar">Longitude:</string>
+    <string name="latitudLugar">Latitude:</string>
+    <string name="valoracionLugar">Note:</string>
+    <string name="ComentariosLugar">Commentaires:</string>
+    <string name="title_activity_maps">Carte</string>
+    <string name="CategoriaElige">Choisissez une catégorie</string>
+    <string name="CategoriaParque">Parc</string>
+    <string name="CategoriaBar">Bar</string>
+    <string name="CategoriaMuseo">Musée</string>
+    <string name="CategoriaBiblioteca">Bibliothèque</string>
+    <string name="CategoriaTienda">Boutique</string>
+    <string name="CategoriaTodas">Toutes</string>
+    <string name="accionNuevo">Nouveau</string>
+    <string name="accionEditar">Édition ...</string>
+</resources>
