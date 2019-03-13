@@ -1,7 +1,9 @@
 package com.example.tema7;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.tema7.Logic.LogicLugar;
 import com.example.tema7.Model.Lugar;
@@ -14,7 +16,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener{
@@ -78,8 +82,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-        @Override
-        public boolean onMarkerClick (Marker marker){
-            return false;
-        }
+    @Override
+    public boolean onMarkerClick(final Marker marker) {
+        return false;
+    }
+
+
+
+
+
 }

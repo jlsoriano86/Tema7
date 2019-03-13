@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,6 +28,9 @@ public class InformacionActivity extends AppCompatActivity {
         RatingBar rbValoracion = findViewById(R.id.rbValoracion);
         TextView txtComentarios = findViewById(R.id.txtComentarios);
 
+        if (App.lugarActivo == null){
+            Log.i("Prueba","Hola");
+        }
         txtNombre.setText(App.lugarActivo.getNombre());
         int indexCategoria = App.lugarActivo.getCategoria();
         txtCategoria.setText(App.getListCategorias(this.getApplicationContext()).get(indexCategoria));

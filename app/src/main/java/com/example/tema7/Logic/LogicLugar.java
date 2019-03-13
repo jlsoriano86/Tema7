@@ -102,4 +102,27 @@ public class LogicLugar {
         DB_SQLite.desconectar(conn);
         return lug;
     }
+
+    public static Lugar getLugar(Context context, String longitud, String latitud) {
+        Lugar lug = null;
+        String[] sqlFields = {Esquema.Lugar.COLUMN_NAME_ID, Esquema.Lugar.COLUMN_NAME_NOMBRE, Esquema.Lugar.COLUMN_NAME_CATEGORIA, Esquema.Lugar.COLUMN_NAME_LONGITUD, Esquema.Lugar.COLUMN_NAME_LATITUD, Esquema.Lugar.COLUMN_NAME_VALORACION, Esquema.Lugar.COLUMN_NAME_COMENTARIOS};
+        String sqlWhere = "longitud='" + longitud + "'and latitud='" + latitud + "'";
+        String sqlOrderBy = Esquema.Lugar.COLUMN_NAME_NOMBRE + " ASC";
+        SQLiteDatabase conn = DB_SQLite.conectar(context, DB_SQLite.OPEN_MODE_READ);
+        Cursor cursor = conn.query(Esquema.Lugar.TABLE_NAME, sqlFields, sqlWhere, null, null, null, sqlOrderBy);
+        if (cursor.getCount() != 0) {
+                cursor.moveToFirst();
+                Long dataId = cursor.getLong(cursor.getColumnIndex(Esquema.Lugar.COLUMN_NAME_ID));
+                String dataNombre = cursor.getString(cursor.getColumnIndex(Esquema.Lugar.COLUMN_NAME_NOMBRE));
+                Integer dataCategoria = cursor.getInt(cursor.getColumnIndex(Esquema.Lugar.COLUMN_NAME_CATEGORIA));
+                Float dataLongitud = cursor.getFloat(cursor.getColumnIndex(Esquema.Lugar.COLUMN_NAME_LONGITUD));
+                Float dataLatitud = cursor.getFloat(cursor.getColumnIndex(Esquema.Lugar.COLUMN_NAME_LATITUD));
+                Float dataValoracion = cursor.getFloat(cursor.getColumnIndex(Esquema.Lugar.COLUMN_NAME_VALORACION));
+                String dataComentarios = cursor.getString(cursor.getColumnIndex(Esquema.Lugar.COLUMN_NAME_COMENTARIOS));
+                lug = new Lugar(dataId, dataNombre, dataCategoria, dataLongitud, dataLatitud, dataValoracion, dataComentarios);
+            }
+        cursor.close();
+        DB_SQLite.desconectar(conn);
+        return lug;
+    }
 }
