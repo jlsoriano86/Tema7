@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tema7.Logic.LogicLugar;
 
@@ -69,10 +70,14 @@ public class InformacionActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         LogicLugar.eliminarLugar(getApplicationContext(), App.lugarActivo);
                         finish();
+                        mostrarMensaje("El lugar " + App.lugarActivo.getNombre() + " ha sido eliminado.");
                     }
                 })
                 .setNegativeButton("No", null)
                 .show();
+    }
+    private void mostrarMensaje(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 
 }
